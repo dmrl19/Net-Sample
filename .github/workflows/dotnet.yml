@@ -19,6 +19,7 @@ jobs:
     - name: run ls
       run: ls      
     - name: Restore dependencies
+      working-directory: src/Net.Sample/
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
