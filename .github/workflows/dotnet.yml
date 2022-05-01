@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scripts
 
     steps:
     - uses: actions/checkout@v3
@@ -16,12 +19,16 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 5.0.x
+        
     - name: run ls
       run: ls      
+      
     - name: Restore dependencies
-      working-directory: src/Net.Sample/
+      #working-directory: src/Net.Sample/ #Specify for one task only where you want to set the 'working-directory'
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: Test
       run: dotnet test --no-build --verbosity normal
