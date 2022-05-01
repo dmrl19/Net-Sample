@@ -41,6 +41,20 @@ namespace Net.Sample.Application.Tests
         }
 
         [Fact]
+        public void Substract_Test_Two()
+        {
+            var result = _calculatorService.Substract(1, 2);
+            Assert.Equal(-1, result);
+        }
+
+        [Fact]
+        public void Substract_Test_Three()
+        {
+            var result = _calculatorService.Substract(5, 2);
+            Assert.NotEqual(13, result);
+        }
+
+        [Fact]
         public void Multiply_Test()
         {
             var result = _calculatorService.Multiply(3, 2);
