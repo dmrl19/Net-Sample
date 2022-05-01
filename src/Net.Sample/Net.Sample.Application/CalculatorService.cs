@@ -1,4 +1,6 @@
-﻿namespace Net.Sample.Application
+﻿using System;
+
+namespace Net.Sample.Application
 {
     public class CalculatorService
     {

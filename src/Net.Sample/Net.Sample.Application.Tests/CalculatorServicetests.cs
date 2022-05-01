@@ -1,11 +1,13 @@
+using System;
 using Xunit;
 
 namespace Net.Sample.Application.Tests
 {
-    public class CalculatorServicetests
+    public class CalculatorServiceTests
     {
         private readonly CalculatorService _calculatorService;
-        public CalculatorServicetests()
+
+        public CalculatorServiceTests()
         {
             _calculatorService = new CalculatorService();
         }
