@@ -18,18 +18,35 @@ namespace Net.Sample.Application.Tests
             var result = _calculatorService.Sum(1, 2);
             Assert.Equal(3, result);
         }
+
+        [Fact]
+        public void Sum_Test_Two()
+        {
+            var result = _calculatorService.Sum(2, 2);
+            Assert.Equal(4, result);
+        }
+
+        [Fact]
+        public void Sum_Test_Three()
+        {
+            var result = _calculatorService.Sum(2, 6);
+            Assert.NotEqual(4, result);
+        }
+
         [Fact]
         public void Substract_Test()
         {
             var result = _calculatorService.Substract(5, 2);
             Assert.Equal(3, result);
         }
+
         [Fact]
         public void Multiply_Test()
         {
             var result = _calculatorService.Multiply(3, 2);
             Assert.Equal(6, result);
         }
+
         [Fact]
         public void Divide_Test()
         {
