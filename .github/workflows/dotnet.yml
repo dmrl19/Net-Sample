@@ -16,6 +16,8 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 5.0.x
+    - name: run ls
+      run: ls      
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
