@@ -51,9 +51,11 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Build with dotnet
+        working-directory: ${{ env.DOTNET_VERSION }} #Specify for one task only where you want to set the 'working-directory'
         run: dotnet build --configuration Release
 
       - name: dotnet publish
+        working-directory: ${{ env.DOTNET_VERSION }} #Specify for one task only where you want to set the 'working-directory'
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
