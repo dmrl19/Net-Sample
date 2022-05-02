@@ -21,7 +21,7 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: gitubnetsample    # set this to the name of your Azure Web App
-  AZURE_WEBAPP_PACKAGE_PATH: './src/Net.Sample/AppServices/Net.Sample.AppService.Api'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: 'src/Net.Sample/AppServices/Net.Sample.AppService.Api'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '5.0.x'                 # set this to the .NET Core version to use
 
 on:
@@ -49,7 +49,10 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-
+      - name: Run ls
+        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        run: ls
+        
       - name: Build with dotnet
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} #Specify for one task only where you want to set the 'working-directory'
         run: dotnet build --configuration Release
