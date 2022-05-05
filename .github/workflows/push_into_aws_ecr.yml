@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      - uses: actions/checkout@v2
+      - name: Checkout
+            
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with: 
+          dotnet-version: 5.0.x
+        
+      - name: Build
+        working-directory: src/Net.Sample/
+        run: dotnet build --no-restore
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checkout
+      
+      - name: Setup Pulumi CLI
+        uses: pulumi/setup-pulumi@v2.0.0
+        #with:
+          # Version of the Pulumi CLI to install, or 'latest' (default). This accepts semver ranges like ^3.0.0.
+          #pulumi-version: # default is latest
+          # Token used to query pulumi versions
+          #github-token: # default is ${{ github.token }}
+        
+      - name: Pulumi Preview
+        uses: pulumi/actions@v3.15.0
+        with:
+          cloud-url: s3://{{ secrets.AWS_PULUMI_STATE_S3_BUCKET_NAME }}
+          command: preview
+          work-dir: src/Infrastructure/Net.Sample.Infraestructure.Aws.AppService.Api
+          
+          
+          
+          
+          
+          
+          
+          
