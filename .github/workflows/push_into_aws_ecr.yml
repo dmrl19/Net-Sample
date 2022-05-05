@@ -82,7 +82,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Display ECR Url from previous job
-        run: echo ${{ fromJSON(needs.pulumi_up.outputs) }}
+        run: echo a ${{ needs.pulumi_up.outputs.ecr_Url }}
         
         
 
