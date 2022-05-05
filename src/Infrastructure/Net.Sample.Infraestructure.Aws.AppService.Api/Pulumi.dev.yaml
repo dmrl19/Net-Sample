@@ -1,0 +1,6 @@
+encryptionsalt: v1:ahcpm5Rv25g=:v1:QzsQNC9WWZkO+76/:h2r89a0RvV5ljQvdtqR0dsxpcPK0UQ==
+config:
+  Net.Sample.Infraestructure.Aws.AppService.Api:Region: eu-central-1
+  Net.Sample.Infraestructure.Aws.AppService.Api:Stage: dev
+  Net.Sample.Infraestructure.Aws.AppService.Api:Environment: Development
+  Net.Sample.Infraestructure.Aws.AppService.Api:ProjecName: Sample-project
