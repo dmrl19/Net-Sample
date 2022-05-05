@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.Sample.Application.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppServices", "AppServices", "{0DBA36F4-6405-4878-83B8-11BFADF6577D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Sample.AppService.Api", "AppServices\Net.Sample.AppService.Api\Net.Sample.AppService.Api.csproj", "{D4A8639C-A4B4-4872-9361-78A2FE01C087}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.Sample.AppService.Api", "AppServices\Net.Sample.AppService.Api\Net.Sample.AppService.Api.csproj", "{D4A8639C-A4B4-4872-9361-78A2FE01C087}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net.Sample.Infraestructure.Aws.AppService.Api", "..\Infrastructure\Net.Sample.Infraestructure.Aws.AppService.Api\Net.Sample.Infraestructure.Aws.AppService.Api.csproj", "{D86409B2-8F0A-409F-90E1-A4B9609BF358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{D4A8639C-A4B4-4872-9361-78A2FE01C087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4A8639C-A4B4-4872-9361-78A2FE01C087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4A8639C-A4B4-4872-9361-78A2FE01C087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86409B2-8F0A-409F-90E1-A4B9609BF358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86409B2-8F0A-409F-90E1-A4B9609BF358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86409B2-8F0A-409F-90E1-A4B9609BF358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86409B2-8F0A-409F-90E1-A4B9609BF358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
