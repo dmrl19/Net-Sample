@@ -1,4 +1,4 @@
-name: CI
+name: Push into ECR
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       - name: Build
         working-directory: src/Net.Sample/
         run: dotnet build
-  preview:
+  pulumi_preview:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
@@ -44,3 +44,32 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
+    
+  pulumi_up:
+    runs-on: ubuntu-latest
+    needs: [pulumi_preview]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup Pulumi CLI
+        uses: pulumi/setup-pulumi@v2.0.0
+        
+      - name: Pulumi Preview
+        uses: pulumi/actions@v3.15.0
+        with:
+          cloud-url: s3://${{ secrets.AWS_PULUMI_STATE_S3_BUCKET_NAME }}
+          command: up
+          work-dir: src/Infrastructure/Net.Sample.Infraestructure.Aws.AppService.Api
+          stack-name: dev        
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
+
+
+
+
+
+
