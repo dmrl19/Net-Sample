@@ -35,7 +35,7 @@ jobs:
       - name: Pulumi Preview
         uses: pulumi/actions@v3.15.0
         with:
-          cloud-url: s3://{{ secrets.AWS_PULUMI_STATE_S3_BUCKET_NAME }}
+          cloud-url: s3://${{ secrets.AWS_PULUMI_STATE_S3_BUCKET_NAME }}
           command: preview
           work-dir: src/Infrastructure/Net.Sample.Infraestructure.Aws.AppService.Api
           stack-name: dev        
