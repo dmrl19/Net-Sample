@@ -100,6 +100,7 @@ jobs:
           tags: ${{ needs.pulumi_up.outputs.ecr_Url }}:latest
           file: src/Net.Sample/AppServices/Net.Sample.AppService.Api/Dockerfile
           context: src/Net.Sample/AppServices/Net.Sample.AppService.Api/
+          push: true
 
 
 
