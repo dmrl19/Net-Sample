@@ -97,7 +97,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3.0.0
         with:
-          tags: ${{ needs.pulumi_up.outputs.ecr_Url }}:{{ github.run_id }}
+          tags: ${{ needs.pulumi_up.outputs.ecr_Url }}:${{ github.run_id }}
           file: src/Net.Sample/AppServices/Net.Sample.AppService.Api/Dockerfile
           context: src/Net.Sample/AppServices/Net.Sample.AppService.Api/
           push: true
