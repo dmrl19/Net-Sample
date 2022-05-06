@@ -39,6 +39,7 @@ jobs:
           command: preview
           work-dir: src/Infrastructure/Net.Sample.Infraestructure.Aws.AppService.Api
           stack-name: dev        
+          upsert: true
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
