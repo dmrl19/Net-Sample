@@ -100,7 +100,7 @@ jobs:
         uses: docker/build-push-action@v3.0.0
         with:
           tags: ${{ needs.pulumi_up.outputs.ecr_Url }}:latest
-          file: src/Net.Sample/AppServices/Net.Sample.AppService.Api
+          file: src/Net.Sample/AppServices/Net.Sample.AppService.Api/Dockerfile
 
 
 
