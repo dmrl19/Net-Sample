@@ -24,6 +24,7 @@ jobs:
   pulumi_preview:
     runs-on: ubuntu-latest
     needs: [build]
+    name: Pulumi Preview
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -47,6 +48,7 @@ jobs:
   pulumi_up:
     runs-on: ubuntu-latest
     needs: [pulumi_preview]
+    name: Pulumi Up
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -67,9 +69,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "eu-central-1"
           PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
-          
-      - name: echo
-        run:  echo ${{ steps.pulumi-sample.outputs.RepositoryUrl }}
         
     outputs:
       ecr_Url : ${{ steps.pulumi-sample.outputs.RepositoryUrl }}
@@ -77,12 +76,10 @@ jobs:
   docker_build:
     runs-on: ubuntu-latest
     needs: [pulumi_up]
+    name: Build and Push image into ECR
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
-      - name: Display ECR Url from previous job
-        run: echo a ${{ needs.pulumi_up.outputs.ecr_Url }}
         
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
