@@ -88,8 +88,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: "eu-central-1"
         
-      - name: Amazon ECR "Login" Action for GitHub Actions
-        uses: aws-actions/amazon-ecr-login@v1        
+      #- name: Amazon ECR "Login" Action for GitHub Actions
+      #  uses: aws-actions/amazon-ecr-login@v1        
   
       - name: Build and push Docker images
         uses: docker/build-push-action@v3.0.0
